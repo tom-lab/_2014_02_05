@@ -3,6 +3,8 @@ SoftwareSerial LEDSerial(20, 21);
 
 //Github Test
 
+//Hallo There, Hier ist Gfast!
+
 //Einstellbare Werte
 const long Waagezeit_Konstante = 120000; //Wartezeit bei fehlendem Statuswechsel bis Reset
 const long RelativMaxWeg = 12000;   //Maximale Auslenkung Waagen (x2 weil 2 gestaffelte Waagen)
