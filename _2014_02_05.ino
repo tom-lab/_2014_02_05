@@ -1,9 +1,9 @@
+/* Final Beta Version 0.5
+ *
+ */
+
 #include <SoftwareSerial.h>
 SoftwareSerial LEDSerial(20, 21);
-
-//Github Test
-
-//Hallo There, Hier ist Gfast!
 
 //Einstellbare Werte
 const long Waagezeit_Konstante = 120000; //Wartezeit bei fehlendem Statuswechsel bis Reset
@@ -125,24 +125,19 @@ long StartPosition[5]={0, PosMitteOben, PosMitteUnten, PosMitteUnten, PosMitte};
 
 void setup()
 {
-  Serial3.begin(115200); //Gewichtstransmitter
-  Serial2.begin(115200); //Motoren
   Serial.begin(115200); //Rechner
-  
+  Serial2.begin(115200); //Motoren
+  Serial3.begin(115200); //Gewichtstransmitter
   LEDSerial.begin(38400);  //Softwareserial für LEDs und Musikshield
 
   
   pinMode(chipDriver,OUTPUT);
   digitalWrite(chipDriver, LOW);    //LOW setzt RS485 Chip auf Listen 
 
-  pinMode(EndSchalterPin[1], INPUT);
-  pinMode(MagnetPin[1], OUTPUT);
-  pinMode(EndSchalterPin[2], INPUT);
-  pinMode(MagnetPin[2], OUTPUT);
-  pinMode(EndSchalterPin[3], INPUT);
-  pinMode(MagnetPin[3], OUTPUT);
-  pinMode(EndSchalterPin[4], INPUT);
-  pinMode(MagnetPin[4], OUTPUT);
+  for(int i=1; i<5; i++) {
+    pinMode(MagnetPin[i], OUTPUT);  
+    pinMode(EndSchalterPin[i], INPUT);
+  }
   
   pinMode(NotAusPin, INPUT);
   
